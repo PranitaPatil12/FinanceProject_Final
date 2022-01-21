@@ -1,0 +1,49 @@
+
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>Self-Salaried Data</title>
+{% endblock %}
+
+
+
+
+{% block content %}
+<p class="h3" align="center">Self-Salried Data</p>
+<br><br>
+<table class="table table-striped">
+    <tr>
+        <th>Business Name</th>
+        <th>IT Returns</th>
+        <th>Avg. Monthly Income</th>
+        <th>Annual Turnover </th>
+        <th>Action</th>
+        <th>Action</th>
+
+    </tr>
+
+     {% for p1 in show_obj %}
+    <tr>
+        <td>{{p1.business_name}}</td>
+        <td>{{p1.itr}}</td>
+        <td>{{p1.avg_monthly_income}}</td>
+        <td>{{p1.annual_turnover}}</td>
+        <td>
+            <a href="{% url 'delete_self' p1.id %}">
+                <button class="btn btn-danger">Delete</button>
+            </a>
+        </td>
+
+        <td>
+            <a href="{% url 'update_self' p1.id %}">
+                <button class="btn btn-warning">Update</button>
+            </a>
+        </td>
+
+    </tr>
+    {% endfor %}
+</table>
+<a class="btn btn-secondary btn-lg " href="{% url 'add_self' %}">Add Data </a>
+
+{% endblock %}

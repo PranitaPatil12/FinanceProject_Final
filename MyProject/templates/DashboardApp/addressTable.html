@@ -1,0 +1,31 @@
+{% extends "DashboardApp/customerdetail.html" %}
+{% block table %}
+
+<div class="form-group col-md-12">
+    <div class="container" style=" margin: auto;
+            width: 70%;
+            border: 1.5px solid rgb(121, 122, 124);
+            padding: 10px;
+            border-radius: 2%;"><h3 style="text-align: center;
+                background-color: rgb(67, 69, 70);;
+                color: white;
+                font-weight: bold;">Address Details</h3>
+        <div class="cust">
+            <ul style="list-style-type: none;
+            padding: 0;
+            margin-top: 20;">
+
+                <li>Flat No :{{paddress.flat_no}}</li>
+                <li>Street Name :{{paddress.street_name}}</li>
+                <li>City :{{paddress.city}}</li>
+                <li>Pincode :{{paddress.pincode}}</li>
+                <li>Area :{{paddress.area}}</li>
+                <li>Landmark :{{paddress.landmark}}</li>
+                <li>District :{{paddress.district}}</li>
+                <li>State :{{paddress.state}}</li>
+                <li>Country :{{paddress.country}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock table %}

@@ -1,0 +1,49 @@
+{% extends "customer_guarantor_app/layout.html" %}
+{% block title %}
+    <title>Show Guarantor Page</title>
+{% endblock %}
+{% block content %}
+    <h1 style="text-align:center;color:orange">Guarantor Details</h1>
+    <table class="table table-striped table-dark" style="width:90%;margin:auto">
+        <tr >
+
+            <th>Guarantor Name</th>
+            <th>Relation with Customer</th>
+            <th>Profession</th>
+            <th>Contact_no</th>
+            <th>Aadhar_no</th>
+            <th>Pan_no</th>
+            <th>House_no</th>
+            <th>Landmark</th>
+            <th>Area</th>
+            <th>City</th>
+            <th>Pincode</th>
+            <th>State</th>
+            <th>Country</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        {% for g in guarantor %}
+            <tr>
+                <td>{{g.guarantor_name}}</td>
+                <td>{{g.relation_with_cust}}</td>
+                <td>{{g.profession}}</td>
+                <td>{{g.contact_no}}</td>
+                <td>{{g.aadhar_no}}</td>
+                <td>{{g.pan_no}}</td>
+                <td>{{g.house_no}}</td>
+                <td>{{g.landmark}}</td>
+                <td>{{g.area}}</td>
+                <td>{{g.city}}</td>
+                <td>{{g.pincode}}</td>
+                <td>{{g.state}}</td>
+                <td>{{g.country}}</td>
+
+                <td><a href="{% url 'updateguarantor' g.id %}"><button class="btn btn-warning">Update</button></a></td>
+                <td><a href="{% url 'deleteguarantor' g.id %}"><button class="btn btn-danger">Delete</button></a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{% url 'addguarantor' %}"><button class="btn btn-success" style="margin-left:4.5%">Add Guarantor</button></a>
+{% endblock %}

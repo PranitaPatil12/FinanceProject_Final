@@ -1,0 +1,55 @@
+
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>Salaried Data</title>
+{% endblock %}
+
+
+
+
+{% block content %}
+<p class="h3" align="center">Salaried Data</p>
+<br><br>
+<table class="table table-striped">
+    <tr>
+        <th>Type of Employement</th>
+        <th>Designation</th>
+        <th>Year of Experience</th>
+        <th>Joining Date</th>
+        <th>Monthly Income</th>
+        <th>Mode of Salary</th>
+        <th>Company Address</th>
+        <th>Action</th>
+        <th>Action</th>
+
+    </tr>
+
+     {% for p1 in show_obj %}
+    <tr>
+        <td>{{p1.type_employment}}</td>
+        <td>{{p1.designation}}</td>
+        <td>{{p1.year_of_exp}}</td>
+        <td>{{p1.joining_date}}</td>
+        <td>{{p1.monthly_income}}</td>
+        <td>{{p1.mode_of_salary}}</td>
+        <td>{{p1.company_address}}</td>
+        <td>
+            <a href="{% url 'delete_sal' p1.id %}">
+                <button class="btn btn-danger">Delete</button>
+            </a>
+        </td>
+
+        <td>
+            <a href="{% url 'update_sal' p1.id %}">
+                <button class="btn btn-warning">Update</button>
+            </a>
+        </td>
+
+    </tr>
+    {% endfor %}
+</table>
+<a class="btn btn-secondary btn-lg " href="{% url 'add_sal' %}">Add Data </a>
+
+{% endblock %}

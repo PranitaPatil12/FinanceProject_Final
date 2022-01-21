@@ -1,0 +1,98 @@
+<head>
+<style>
+    @page {
+        size: a4 portrait;
+        @frame header_frame {           /* Static Frame */
+            -pdf-frame-content: header_content;
+            left: 50pt; width: 512pt; top: 50pt; height: 40pt;
+        }
+        @frame content_frame {          /* Content Frame */
+            left: 50pt; width: 512pt; top: 90pt; height: 1000pt;
+        }
+        @frame footer_frame {           /* Another static Frame */
+            -pdf-frame-content: footer_content;
+            left: 50pt; width: 512pt; top: 1050pt; height: 20pt;
+        }
+    }
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body style="font-size: medium;">
+    <!-- Content for Static Frame 'header_frame' -->
+    <div id="header_content">
+		<h2 style="text-align: center;"> Sanction letter for personal loan</h2>
+		
+    </div>
+
+	<p>Thank you for choosing B22 Bank. Based on the application and information <br>
+			provided therein,we are pleased to extend an offer to you for a loan as per the<br>preliminary terms and conditions mentioned below. </p>
+    <!-- Content for Static Frame 'footer_frame' -->
+    <div id="footer_content">(c) - page <pdf:pagenumber>
+        of <pdf:pagecount>
+    </div>
+	<div class="container">
+	<table class="table table-dark" border="1px">
+		<tr>
+
+		<td scope="col" style="padding: 3px">Application ID:&minus;{{app_no}}</td>
+		<td scope="col" style="padding: 3px">Applicant Name:&minus; {{name}}</td>
+		</tr>
+		<tr>
+		<td  scope="row" style="padding: 3px">Mobile NO:</td>
+		<td  scope="row" style="padding: 3px">{{mobile}}</td>
+		</tr>
+	</table>
+   <br><br>
+	<table class="table table-dark" border="1px">
+    <tr>
+      <td scope="col" style="padding: 3px">Loan Type:</td>
+	  <td scope="col" style="padding: 3px">Personal Loan</td>
+	</tr>
+	<tr>
+      <td scope="col" style="padding: 3px">Loan Amount Sanctioned:</td>
+	  <td scope="col" style="padding: 3px">{{amount}}rs</td>
+	</tr>
+	<tr>
+      <td scope="col" style="padding: 3px">Reference Interest Rate:</td>
+	  <td scope="col" style="padding: 3px">{{interest}}x% per annum </td>
+	</tr>
+	
+	<tr>
+      <td scope="col" style="padding: 3px">Loan Tenor(in month):</td>
+	  <td scope="col" style="padding: 3px">{{tenure}} month</td>
+	</tr>
+	<tr>
+      <td scope="col" style="padding: 3px">Total Processing Charges:</td>
+	  <td scope="col" style="padding: 3px">Up to 0.5%of the total loan amount</td>
+	</tr>
+	<tr>
+      <td scope="col" style="padding: 3px">Origination Fee:</td>
+	  <td scope="col" style="padding: 3px">2500</td>
+	</tr>
+	<tr>
+      <td scope="col" style="padding: 3px">Sanction Letter Validity:</td>
+	  <td scope="col" style="padding: 3px">180 days from the date of sanction:</td>
+	</tr>
+	<tr>
+      <td scope="col" style="padding: 3px">Amount of EMI(INR):</td>
+	  <td scope="col" style="padding: 3px">{{emi}}rs</td>
+	</tr>
+	
+	</table>
+</div>
+	<p>Additional conditions to comply prior to loan disbursal:</p>
+
+	<ol>
+		<li>Repayment from B22 Bank </li>
+		<li>Legal vetting and search to be conducted </li>
+		<li>NOC and offered collateral</li>
+		<li>Confirmation form,official ID and copy of ID</li>
+		
+	</ol>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

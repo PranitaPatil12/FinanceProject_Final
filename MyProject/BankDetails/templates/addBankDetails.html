@@ -1,0 +1,40 @@
+{% extends "DashboardApp/base.html" %} {% block form %}
+<div>
+  {% load crispy_forms_tags %}
+  <form method="post"  class="jumbotron" style="margin:auto;width:60%">
+        {% csrf_token %}
+        <h1 style="text-align:center">Add Bank Details</h1>
+         <div class="row">
+             {{ form.account_holder_name|as_crispy_field }}
+         </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.account_no|as_crispy_field }}
+             </div>
+            <div class="col-6">
+                {{ form.bank_name|as_crispy_field }}
+            </div>
+        </div>
+         <div class="row">
+            <div class="col-6">
+                {{ form.branch_name|as_crispy_field }}
+             </div>
+            <div class="col-6">
+                {{ form.account_type|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.ifsc_code|as_crispy_field }}
+             </div>
+            <div class="col-6">
+                {{ form.micr_code|as_crispy_field }}
+            </div>
+        </div>
+
+        <input type="submit" value="Add" class="btn btn-success"><br>
+
+
+    </form>
+</div>
+{% endblock form %}

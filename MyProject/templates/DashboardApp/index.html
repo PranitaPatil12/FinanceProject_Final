@@ -1,0 +1,38 @@
+
+
+	<style>
+		body{
+			background-color: #5a565e;
+		}
+
+		.card{
+			
+		}
+	</style>
+
+{% extends "DashboardApp/base.html" %} {% block form %}
+	<div class="jumbotron" style="margin:0px;">
+		<div class="row m-0;">
+			<div class="col-md"></div>
+
+			<div class="col-md">
+				<div class="card card-body">
+					 <div class="text-center"> 
+					<h3>View Invoices or Download Directly To PDF{{loan.customer.full_name}}</h3>
+					<p>A letter issued by the B22 Bank to the applicant, informing them about their loan application.</p>
+					<a class="btn btn-info" href="{% url 'pdf_view' loan.id %}" target="_blank">View Invoice</a>
+					<a class="btn btn-info"  href="{% url 'pdf_download' loan.id %}">Download Invoice</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md"></div>
+		</div>
+	</div>
+
+{% endblock form %}
+
+
+
+
+

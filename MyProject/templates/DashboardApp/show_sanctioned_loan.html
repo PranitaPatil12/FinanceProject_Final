@@ -1,0 +1,55 @@
+{% extends "DashboardApp/base.html" %} {% block form %}
+<div>
+  {% load crispy_forms_tags %}
+  <form
+    method="post"
+    style="background-color: #d3e1e4"
+    class="jumbotron text-dark"
+  >
+    <br /><br />
+    <h3 style="text-align: center" class="mt-2 text-dark">SANCTIONED LOAN</h3>
+    {% csrf_token %}
+    <body>
+      <table class="table table-striped" border="3">
+        <tr>
+          <th>CUSTOMER</th>
+          <th>REQUIRED LOAN</th>
+          <th>APPROVED LOAN</th>
+          <th>TENURE</th>
+          <th>INTEREST</th>
+          <th>EMI</th>
+          <th>APPROVED</th>
+          {% if user.status == 'OPERATION HEAD' %}
+          <th>UPDATE</th>
+          <th>PDF</th>
+          {% endif %}
+        </tr>
+        {% for sanction in sanction_obj %}
+        <tr>
+          <td>{{sanction.customer}}</td>
+          <td>{{sanction.required_loan}}</td>
+
+          <td>{{sanction.approved_loan}}</td>
+          <td>{{sanction.tenure}}</td>
+          <td>{{sanction.interest}}</td>
+          <td>{{sanction.emi}}</td>
+          <td>{{sanction.is_approved}}</td>
+          {% if user.status == 'OPERATION HEAD' %}
+          <td>
+            <a href="{% url 'update_sanction' sanction.id %}">
+              <button class="btn btn-danger" type="button">Update</button></a
+            >
+          </td>
+          <td>
+            <a href="{% url 'index' sanction.id %}">
+              <button class="btn btn-danger" type="button">PDF</button></a
+            >
+          </td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      </table>
+    </body>
+  </form>
+</div>
+{% endblock form %}

@@ -1,0 +1,53 @@
+{% extends 'DashboardApp\base.html' %}
+{% load crispy_forms_tags %}
+{% block form %}
+<div class="jumbotron">
+  <form method="get" class="jumbotron">
+
+        <div class="MuiCollapse-root MuiCollapse-entered" style="min-height: 0px;">
+            <div class="MuiCollapse-wrapper"><div class="MuiCollapse-wrapperInner">
+                <div role="region"><div class="MuiAccordionDetails-root">
+                    <div class="MuiGrid-root jss2165 MuiGrid-container MuiGrid-spacing-xs-3">
+                        <div class="MuiGrid-root jss2234 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12" style="padding-bottom: 16px;"><div>
+                            <div class="">
+                                <fieldset class="MuiFormControl-root">
+                                    <legend class="MuiFormLabel-root jss2240">Select employment type</legend>
+                                    <div class="MuiFormGroup-root jss2239" role="radiogroup">
+                                    <label class="MuiFormControlLabel-root jss2244">
+                                    <span class="MuiButtonBase-root MuiIconButton-root jss2252 MuiRadio-root jss2246 MuiRadio-colorPrimary MuiIconButton-colorPrimary" aria-disabled="false" style="width: 128px; height: 72px;">
+                                    <span class="MuiIconButton-label">
+                                        <input class="jss2255" name="employmentType" type="radio" value="salaried">
+                                        <img src="https://dugtmg0pklp2w.cloudfront.net/ic-v1-salaried.svg" alt="ic-v1-salaried">
+                                    </span>
+                                    <span class="MuiTouchRipple-root"></span>
+                                </span>
+                                <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"></span>
+                                </label>
+                                <label class="MuiFormControlLabel-root jss2244">
+                                    <span class="MuiButtonBase-root MuiIconButton-root jss2252 MuiRadio-root jss2246 MuiRadio-colorPrimary MuiIconButton-colorPrimary" aria-disabled="false" style="width: 128px; height: 72px;">
+                                    <span class="MuiIconButton-label">
+                                        <input class="jss2255" name="employmentType" type="radio" value="self employed">
+                                        <img src="https://dugtmg0pklp2w.cloudfront.net/ic-v1-self-employed.svg" alt="ic-v1-self-employed">
+                                    </span>
+                                    <span class="MuiTouchRipple-root"></span>
+                                </span>
+                                    <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"></span>
+                                </label>
+                                <button type="submit" name="submit">Select</button>
+                            </div>
+                        </fieldset>
+                        </div>
+                        </div>
+                        </div>
+                        <div class="MuiGrid-root jss2236 MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-content-xs-space-between"></div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+{% endblock form %}

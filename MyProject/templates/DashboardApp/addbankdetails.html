@@ -1,0 +1,55 @@
+{% extends 'DashboardApp/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block form %}
+<div>
+    {% load crispy_forms_tags %}
+    <form
+            method="post"
+            style="background-color: #d3e1e4"
+            class="jumbotron text-dark"
+    >
+        <br/><br/>
+        <h3 style="text-align: center" class="mt-2 text-dark">Bank Details</h3>
+        {% csrf_token %}
+        <div class="row mt-3">
+            <div class="col-6 "> {{ form.customer|as_crispy_field }}</div>
+            <div class="col-6">
+                {{ form.account_holder_name|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.account_no|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.bank_name|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.branch_name|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.account_type|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.ifsc_code|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.micr_code|as_crispy_field }}
+            </div>
+        </div>
+
+        <div style="width:100%" class="text-center">
+        <input
+                type="submit"
+                value="Submit and Next"
+                class="btn btn-dark mt-3"
+        />
+        </div>
+    </form>
+</div>
+
+{% endblock %}

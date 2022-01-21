@@ -1,0 +1,32 @@
+{% extends "DashboardApp/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>Add Guarantor Page</title>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <form method="post" class="jumbotron " enctype="multipart/form-data" style="margin:auto;width:60%">
+            {% csrf_token %}
+            <h1 style="text-align:center;color:tomato">Guarantor Form</h1>
+            <div class="row mt-3">
+                <div class="col-6">{{ form.guarantor_name|as_crispy_field }}</div> 
+                <div class="col-6">{{ form.guardian_name|as_crispy_field }}</div>
+                <div class="col-6">{{ form.profession|as_crispy_field }}</div>
+                <div class="col-6">{{ form.contact_no|as_crispy_field }}</div>
+                <div class="col-6">{{ form.aadhar_no|as_crispy_field }}</div>
+                <div class="col-6">{{ form.pan_no|as_crispy_field }}</div>
+                <div class="col-6">{{ form.aadhar_card|as_crispy_field }}</div>
+                <div class="col-6">{{ form.house_no|as_crispy_field }}</div>
+                <div class="col-6">{{ form.landmark|as_crispy_field }}</div>
+                <div class="col-6">{{ form.area|as_crispy_field }}</div>
+                <div class="col-6">{{ form.city|as_crispy_field}}</div>
+                <div class="col-6">{{ form.pincode|as_crispy_field}}</div>
+                <div class="col-6">{{ form.state|as_crispy_field}}</div>
+                <div class="col-6">{{ form.country|as_crispy_field}}</div>
+                
+              </div>
+            {{form | crispy}}
+            <input type="submit" value="Add Guarantor" class="btn btn-primary " style="margin-left:40%">
+        </form>
+    </div>
+{% endblock %}

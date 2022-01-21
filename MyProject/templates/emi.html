@@ -1,0 +1,186 @@
+{% extends 'navbar_loan.html' %} {% block title %}
+<title>EMI-Calculator</title>
+{% endblock %} {% block nav_items %}
+
+<div class="container">
+  <br /><br />
+  <h3 style="text-align: center; color: black">EMI Calculator</h3>
+  <hr />
+  <div>
+    <div class="calculator card">
+      <div class="container" style="width: 50">
+        <form id="loan-form" class="jumbotron">
+          <label for="loan">Loan requirement is :</label>
+          <div class="row">
+            <div class="column">
+              <div>
+                <b class="title">Amount: <span id="amount_d"></span></b>
+              </div>
+              
+              <div>
+                <input
+                  type="range"
+                  min="50000"
+                  max="2000000"
+                  value="50000"
+                  step="10000"
+                  class="form-range"
+                  id="amount"
+                />
+              </div>
+            </div>
+          </div>
+
+          <br />
+
+          <label for="itr">Looking at an interest rate of :</label>
+          <div class="row">
+            <div class="column">
+              <div>
+                <b class="title"
+                  >Interest Rate: <span id="interest_d"></span
+                ></b>
+              </div>
+              
+              <div>
+                <input
+                  type="range"
+                  min="10.25"
+                  max="24.5"
+                  value="10.25"
+                  step="0.1"
+                  class="form-range"
+                  id="interest"
+                />
+              </div>
+            </div>
+          </div>
+          <br />
+
+          <label for="year">Plan to repay the loan amount in Months</label>
+          <div class="row">
+            <div class="column">
+              <div>
+                <b class="title">Months: <span id="year_d"></span></b>
+              </div>
+
+              <div class="slidecontainer">
+                <input
+                  type="range"
+                  min="12"
+                  max="60"
+                  value="1"
+                  class="form-range"
+                  id="year"
+                />
+              </div>
+            </div>
+          </div>
+
+          <br />
+
+          <div>
+            <table class="table table-striped">
+              <tr>
+                <th>Monthly EMI</th>
+                <th>Total Interest</th>
+                <th>Total Amount</th>
+              </tr>
+              <tr>
+                <td>
+                  <div class="notification is-primary has-text">
+                    <p id="monthlyPayment" class="title is-1">₹</p>
+                  </div>
+                </td>
+                <td>
+                  <div class="notification is-info has-text">
+                    <p id="totalInterest" class="title is-1">₹</p>
+                  </div>
+                </td>
+                <td>
+                  <div class="notification is-warning has-text">
+                    <p id="totalPayment" class="title is-1">₹</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="rounded-circle">
+            <center><button class="btn btn-success">Calculate</button></center>
+          </div>
+          <br />
+        </form>
+      </div>
+
+      <script>
+        var amount = document.getElementById("amount");
+        var interest = document.getElementById("interest");
+        var years = document.getElementById("year");
+        var output1 = document.getElementById("amount_d");
+        var output2 = document.getElementById("interest_d");
+        var output3 = document.getElementById("year_d");
+
+        output1.innerHTML = amount.value;
+        output2.innerHTML = interest.value;
+        output3.innerHTML = years.value;
+
+        amount.oninput = function () {
+          output1.innerHTML = this.value;
+        };
+
+        interest.oninput = function () {
+          output2.innerHTML = this.value;
+        };
+
+        years.oninput = function () {
+          output3.innerHTML = this.value;
+        };
+        document
+          .getElementById("loan-form")
+          .addEventListener("submit", computeResults);
+
+        function computeResults(e) {
+          const UIamount = amount.value;
+          const UIinterest = interest.value;
+          const UIyears = years.value;
+
+          const principal = Number(UIamount);
+          const CalculateInterest = Number(UIinterest) / 100 / 12;
+          const calculatedPayments = Number(UIyears) ;
+
+          //Compute monthly Payment
+
+          const x = Math.pow(1 + CalculateInterest, calculatedPayments);
+          const monthly = (principal * x * CalculateInterest) / (x - 1);
+          const monthlyPayment = monthly.toFixed(2);
+
+          //Compute Interest
+
+          const totalInterest = (
+            monthly * calculatedPayments -
+            principal
+          ).toFixed(2);
+
+          //Compute Total Payment
+
+          const totalPayment = (monthly * calculatedPayments).toFixed(2);
+
+          //Show results
+
+          document.getElementById("monthlyPayment").innerHTML =
+            "₹ " + monthlyPayment;
+
+          document.getElementById("totalInterest").innerHTML =
+            "₹ " + totalInterest;
+
+          document.getElementById("totalPayment").innerHTML =
+            "₹ " + totalPayment;
+          e.preventDefault();
+        }
+      </script>
+    </div>
+  </div>
+</div>
+
+{% endblock nav_items %}

@@ -1,0 +1,64 @@
+{% extends 'DashboardApp/base.html' %}
+{% load static %}
+{% block form %}
+<div class="jumbotron">
+    <h1 style="text-align:center">Loan Details</h1>
+    <table class="table table-striped table-bordered" >
+        <tr >
+            <th>Customer ID</th>
+            <th>Full Name</th>
+            <th>Gender</th>
+            <th>Date of Birth</th>
+            <th>Mobile No</th>
+            <th>Email</th>
+            <th>Pan No</th>
+            <th>Required Loan Amount</th>
+            <th>Cibil Score</th>
+            <th>Eligibility</th>
+            
+            
+            {% if user.status == 'OPERATION HEAD' %}
+            <th>Update</th>
+            {% else %}
+            <th>Delete</th>
+            <th>Register Loan</th>
+            {% endif %}
+
+
+        </tr>
+        {% for customer in customer_list %}
+            <tr >
+                <td>{{customer.id}}</td>
+                <td>{{customer.full_name}}</td>
+                <td>{{customer.gender}}</td>
+                <td>{{customer.dob}}</td>
+                <td>{{customer.mobile}}</td>
+                <td>{{customer.email}}</td>
+                <td>{{customer.pan_number}}</td>
+                <td>{{customer.required_loan}}</td>
+                <td>{{customer.cibil_score}}</td>
+                {% if customer.is_eligible %}
+                    <td>Eligible</td>
+                {% else %}
+                    <td>Pending</td>
+                {% endif %}
+                
+                
+                {% if user.status == 'OPERATION HEAD' %}
+                <td><a href="{% url 'approve' customer.id %}"><button class="btn btn-warning">Approve</button></a></td>
+                {% else %}
+                {% if customer.is_eligible %}
+                <td><a href="{% url 'delete' customer.id %}"><button class="btn btn-danger" disabled>Delete</button></a></td>
+                <td><a href="{% url 'cCustomerpg' %}"><button class="btn btn-warning">Register</button></a></td>
+                {% else %}
+                <td><a href="{% url 'delete' customer.id %}"><button class="btn btn-danger">Delete</button></a></td>
+                <td><a href="{% url 'cCustomerpg' %}"><button class="btn btn-warning" disabled>Register</button></a></td>
+                {% endif %}
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+{% endblock form %}

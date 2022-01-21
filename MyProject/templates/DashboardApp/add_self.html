@@ -1,0 +1,26 @@
+
+{% extends 'DashboardApp\base.html' %}
+{% load crispy_forms_tags %}
+
+
+
+
+
+{% block form %}
+
+
+
+<div class="container">
+
+    <form method="post" class="jumbotron", style="50%">
+    {% csrf_token %}
+        <p class="h3" align="center">Self-Salaried Details Form</p>
+    {{form | crispy}}
+    <input type="submit" value="Add " class="btn btn-success">
+    </form>
+
+</div>
+
+
+
+{% endblock %}

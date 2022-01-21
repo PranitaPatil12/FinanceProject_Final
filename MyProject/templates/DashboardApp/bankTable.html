@@ -1,0 +1,32 @@
+{% extends "DashboardApp/customerdetail.html" %}
+{% block table %}
+
+<div class="form-group col-md-12">
+            <div class="container" style=" margin: auto;
+            width: 70%;
+            border: 1.5px solid rgb(121, 122, 124);
+            padding: 10px;
+            border-radius: 2%;">
+            <h3 style="text-align: center;
+            background-color: rgb(67, 69, 70);
+            color: white;
+            font-weight: bold;" >Customer Bank Details</h3>
+
+            <div class="cust">
+            <ul style="list-style-type: none;
+            padding: 0;
+            margin-top: 20;">
+
+          <li>Account Holder Name :{{bankdetails.account_holder_name}}</li>
+          <li>Account No :{{bankdetails.account_no}}</li>
+          <li>Bank Name :{{bankdetails.bank_name}}</li>
+          <li>Branch Name :{{bankdetails.branch_name}}</li>
+          <li>Account Type :{{bankdetails.account_type}}</li>
+          <li>IFSC Code :{{bankdetails.ifsc_code}}</li>
+          <li>MICR Code :{{bankdetails.micr_code}}</li>
+
+        </ul>
+    </div>
+    </div>
+    </div>
+{% endblock table %}

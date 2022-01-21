@@ -1,0 +1,46 @@
+{% extends 'DashboardApp/base.html' %}
+{% load static %}
+{% block form %}
+<div class="jumbotron">
+<h1 style="text-align:center;color:royalblue">Enquiry List</h1>
+    <table class="table table-striped "  >
+        <tr>
+            <th>Full Name</th>
+            <th>Gender</th>
+            <th>Mobile Number</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Action</th>
+            <th>Contact</th>
+        </tr>
+        {% for enquiry in page_obj %}
+            <tr>
+                <td>{{enquiry.full_name}}</td>
+                <td>{{enquiry.gender}}</td>
+                <td>{{enquiry.mobile}}</td>
+                <td>{{enquiry.email}}</td>
+                <td>{{enquiry.city}}</td>
+
+                <td><a href="{% url 'dEnquirypg' enquiry.id %}"><button class="btn btn-danger">Delete</button></a></td>
+                <td><a href="{% url 'addloan'  %}"><button class="btn btn-info">Contact</button></a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <div class="pagination">
+    <span class="step-links" style="margin:auto">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">First</a>
+            <a href="?page={{page_obj.previous_page_number}}">Previous</a>
+        {% endif %}
+            <span class="current">Page {{page_obj.number}} of {{page_obj.paginator.num_pages}}</span>
+        {% if page_obj.has_next %}
+            <a href="?page={{page_obj.next_page_number}}">Next</a>
+            <a href="?page={{page_obj.paginator.num_pages}}">Last</a>
+        {% endif %}
+
+    </span>
+</div>
+
+
+</div>
+{% endblock form %}

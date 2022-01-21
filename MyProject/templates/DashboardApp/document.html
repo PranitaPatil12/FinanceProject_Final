@@ -1,0 +1,36 @@
+{% extends "DashboardApp/base.html" %} {% block form %}
+<div>
+  {% load crispy_forms_tags %}
+  <form
+    method="post"
+    style="background-color: #d3e1e4"
+    class="jumbotron text-dark"
+    enctype="multipart/form-data"
+  >
+    <br /><br />
+    <h3 style="text-align: center" class="mt-2 text-dark">Document Details</h3>
+    {% csrf_token %}
+
+    <div class="row mt-3">
+      <div class="col-6">{{ form.customer|as_crispy_field }}</div>
+      <div class="col-6">{{ form.pan_card|as_crispy_field }}</div>
+      <div class="col-6">{{ form.aadhar_card|as_crispy_field }}</div>
+      <div class="col-6">{{ form.bank_statment|as_crispy_field }}</div>
+      <div class="col-6">{{ form.photo|as_crispy_field }}</div>
+      <div class="col-6">{{ form.signature|as_crispy_field }}</div>
+      <div class="col-6">{{ form.salary_slip|as_crispy_field }}</div>
+      <div class="col-6">{{ form.from16|as_crispy_field }}</div>
+      <div class="col-6">{{ form.blance_sheet|as_crispy_field }}</div>
+      <div class="col-6">{{ form.itr|as_crispy_field }}</div>
+      <div class="col-6">{{ form.business_proof|as_crispy_field }}</div>
+    </div>
+    <!-- {{form|crispy}} -->
+    <input
+      type="submit"
+      value="Add Customer Detail"
+      class="btn btn-dark btn-block mt-3"
+      style="margin-right: auto"
+    />
+  </form>
+</div>
+{% endblock form %}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    {% block title %}
+    <title>B22 Bank - Home</title>
+    {% endblock title %}
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <!-- Favicons {% static '' %} -->
+    <link href="{% static 'assets/img/fav/favicon.ico' %}" rel="icon" />
+    <link
+      href="{% static 'assets/img/apple-touch-icon.png' %}"
+      rel="apple-touch-icon"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="{% static 'assets/vendor/animate.css/animate.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" />
+
+    <!-- =======================================================
+  * Template Name: eBusiness - v4.7.0
+  * Template URL: https://bootstrapmade.com/ebusiness-bootstrap-corporate-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+    <link href="{% static 'sidebar.css' %}" rel="stylesheet" />
+  </head>
+
+  <body style="background-color: #3ec1d5">
+    <!-- ======= Header ======= -->
+    <div>
+      <header
+        id="header"
+        class="fixed-top d-flex align-items-center"
+        style="background-color: black; position: fixed"
+      >
+        <div class="container d-flex justify-content-between">
+          <div class="logo">
+            <h1>
+              <a href="index.html"><span></span>B22 Bank</a>
+            </h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a> -->
+          </div>
+
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li>
+                <a class="nav-link scrollto active" href="{% url 'homepage' %}"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a class="nav-link scrollto" href="{% url 'aboutpage' %}"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  class="nav-link scrollto"
+                  href="{% url 'homepage' %}#services"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a class="nav-link scrollto" href="{% url 'homepage' %}#contact"
+                  >Contact</a
+                >
+              </li>
+
+              {% if user.is_authenticated %}
+              <li><a>Hello,{{user.username|upper}}</a></li>
+              <li><a href="{% url 'logout' %}">LOGOUT</a></li>
+              {% else %}
+              <li><a href="{% url 'login' %}">LOGIN</a></li>
+              {% endif %}
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav>
+          <!-- .navbar -->
+        </div>
+      </header>
+    </div>
+    <!-- End Header -->
+    <!-- Start Content -->
+
+    <!-- sidebar start -->
+
+    <!-- Left sidebar -->
+    <div class="sidebar-container">
+      <div class="sidebar-logo">Dashboard</div>
+      <ul class="sidebar-navigation">
+        <li>
+          {% if user.status == 'RELATIONSHIP MANAGER' %}
+          <a href="">
+            <i class="fa fa-home" aria-hidden="true"></i> Enquiries
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-users" aria-hidden="true"></i> Approved Enquiries
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="fa fa-cog" aria-hidden="true"></i> Customers
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-info-circle" aria-hidden="true"></i> Loan
+            Registration
+          </a>
+        </li>
+      </ul>
+      {% elif user.status == 'OPERATION HEAD' %}
+      <a href="#">
+        <i class="fa fa-home" aria-hidden="true"></i> Loan Enquiries
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fa fa-users" aria-hidden="true"></i> Loan Applications
+      </a>
+    </li>
+  </ul>
+  {% endif %}
+
+      
+
+      <div class="footer ms-2" style="margin-top: 100%">
+        <p>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          Copyright &copy;
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          All rights reserved | Designed by B22
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </p>
+      </div>
+    </div>
+    <!-- sidebar end -->
+    <!-- workspace content -->
+    <div class="content-container mb-0">
+      {% block form %} {% endblock form %}
+      <!--content-->
+    </div>
+
+    <!-- workspace end -->
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+      integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

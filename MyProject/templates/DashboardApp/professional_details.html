@@ -1,0 +1,16 @@
+{% extends 'DashboardApp\base.html' %}
+{% load crispy_forms_tags %}
+{% block form %}
+    <form role="form" id="view_form" method="post" class="jumbotron" >
+        {% csrf_token %}
+        <input type="radio" name="view" value="view1" checked> Salaried <br>
+        <input type="radio" name="view" value="view2"> Self-Employed<br>
+
+        <button type="submit" name="submit">Select</button>
+    </form>
+
+
+
+{% endblock form %}
+
+

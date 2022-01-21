@@ -1,0 +1,440 @@
+{% extends 'layout.html' %} {% load static %} {% block video %}
+
+<div
+  style="
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    overflow: hidden;
+  "
+  class="topsection"
+>
+  <div
+    style="
+      text-align: left;
+      font-size: 3rem;
+      padding: 20px;
+      margin: 15px;
+      z-index: 1;
+      opacity: 1;
+    "
+  >
+    <p>
+      <small class="text text-white" style="font-size: 2rem"
+        >Welcome to The bank!</small
+      >
+      <br />
+      <br />
+      <br />
+      Explore the world of <br /><br /><br />Ace class Banking.
+    </p>
+  </div>
+
+  <div
+    style="position: absolute; top: 0; left: 0; width: 100%"
+    class="video-container"
+  >
+    <div
+      style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: lightblue;
+        width: 100%;
+        height: 100vh;
+        opacity: 0;
+      "
+      class="color-overlay1"
+    ></div>
+    <video autoplay loop muted>
+      <source src="{% static 'assets/video/video.mp4' %}" type="video/mp4" />
+    </video>
+  </div>
+</div>
+{% endblock video %}
+
+{% block content %}
+
+<main id="main">
+  
+
+  <!-- ======= Services Section ======= -->
+  <div id="services" class="services-area area-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="section-headline services-head text-center">
+            <h2>Our Products</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row text-center">
+        <!-- Start Left services -->
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="about-move">
+            <div class="services-details">
+              <div class="single-services">
+                <a class="services-icon" href="{% url 'features' %}">
+                  <i class="bi bi-cash-coin"></i>
+                </a>
+                <h4>Personal Loan</h4>
+                <p>Get quick funds with ease to meet your needs!</p>
+              </div>
+            </div>
+            <!-- end about-details -->
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="about-move">
+            <div class="services-details">
+              <div class="single-services">
+                <a class="services-icon" href="#">
+                  <i class="bi bi-house-door"></i>
+                </a>
+                <h4>Home Loan</h4>
+                <p>Build your dream Home with our Home Loan!</p>
+              </div>
+            </div>
+            <!-- end about-details -->
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <!-- end col-md-4 -->
+          <div class="about-move">
+            <div class="services-details">
+              <div class="single-services">
+                <a class="services-icon" href="#">
+                  <i class="bi bi-book"></i>
+                </a>
+                <h4>Education Loan</h4>
+                <p>Education is gift that none can take away!</p>
+              </div>
+            </div>
+            <!-- end about-details -->
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <!-- end col-md-4 -->
+          <div class="about-move">
+            <div class="services-details">
+              <div class="single-services">
+                <a class="services-icon" href="#">
+                  <i class="bi bi-briefcase"></i>
+                </a>
+                <h4>Business Loan</h4>
+                <p>
+                  Give your Business a boost with colateral free Business Loans!
+                </p>
+              </div>
+            </div>
+            <!-- end about-details -->
+          </div>
+        </div>
+        <!-- End Left services -->
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <!-- end col-md-4 -->
+          <div class="about-move">
+            <div class="services-details">
+              <div class="single-services">
+                <a class="services-icon" href="#">
+                  <i class="bi bi-phone"></i>
+                </a>
+                <h4>Internet Banking</h4>
+                <p>
+                  Banking and Bill pay at your fingertips! Everything made easy
+                  with internet banking!
+                </p>
+              </div>
+            </div>
+            <!-- end about-details -->
+          </div>
+        </div>
+        <!-- End Left services -->
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <!-- end col-md-4 -->
+          <div class="about-move">
+            <div class="services-details">
+              <div class="single-services">
+                <a class="services-icon" href="{% url 'emipage' %}">
+                  <i class="bi bi-calculator"></i>
+                </a>
+                <h4>EMI Calculator</h4>
+                <p>Let us help you to make sure that the loan is affordable for your pockets so that you can easily repay it.</p>
+              </div>
+            </div>
+            <!-- end about-details -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Services Section -->
+
+  <!-- ======= Team Section ======= -->
+  {% block teams %}{% endblock %}
+
+  <!-- End Team Section -->
+
+  <!-- ======= Rviews Section ======= -->
+
+  <!-- End Rviews Section -->
+
+<!-- ======= Testimonials Section ======= -->
+   <div id="testimonials" class="testimonials">
+    <div class="container">
+      <div class="testimonials-slider swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img
+                src="assets/img/testimonials/testimonials-1.jpg"
+                class="testimonial-img"
+                alt=""
+              />
+              <h3>Saul Goodman</h3>
+              <h4>Ceo &amp; Founder</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                As a first time customer we were greeted with friendly and smiling faces. 
+                The Bank took care of our banking needs in a very professional manner 
+                and followed up with a thank-you note for bringing our business to their bank.
+                We look forward to our next visit.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+          <!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img
+                src="assets/img/testimonials/testimonials-2.jpg"
+                class="testimonial-img"
+                alt=""
+              />
+              <h3>Sara Decos</h3>
+              <h4>Designer</h4>
+              
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Today I am compelled to express my feelings specially in the period of crises which the demonetization has created. Since the day of demonetization there was chaos all around. It was your leadership and team work that the working of your branch was very smooth. Each and every customer went satisfied and two occasions 
+                I had to personally visit your branch to withdraw cash and felt as if it is a routine normal day working
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+          <!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img
+                src="assets/img/testimonials/testimonials-3.jpg"
+                class="testimonial-img"
+                alt=""
+              />
+              <h3>Mr.V.K.Goel</h3>
+              <h4>Store Owner</h4>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Since last fortnight I have visited your Mulund (w) branch couple of times at
+                Shankardhan Plaza along with my friend Shri S K Tola. During my visit,
+                I got a chance to meet Sr. Manager with whom I am really impressed because
+                of his extremely cordial attitude & behaviour with customers who were in queue
+                for exchanging Rs.1000 & Rs.500 notes. He was taking extra care of the senior 
+                citizens which touched my heart.Although I do not have account in your bank, 
+                but decided to at least open my S/B account in your bank branch because of the 
+                services being observed. Hence,  visited your bank branch and gave 
+                all the related papers.I also got a chance to meet the VP & Cluster Business Leader
+                and also shared my appreciation about good services provided by the bank.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+          <!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img
+                src="assets/img/testimonials/testimonials-4.jpg"
+                class="testimonial-img"
+                alt=""
+              />
+              <h3>Matt Brandon</h3>
+              <h4>Freelancer</h4>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                I have used The Bank on Granger Blvd for many of my banking needs,
+                   and most recently a mortgage refi. 
+                   The employees there are always friendly and welcoming. 
+                   My loan officer was Michael Glynn who was extremely organized and 
+                   quick to responded with any questions I had. In my case, the turn around
+                   time from application to close was very quick. 
+                   Thank you Main Street Bank for always providing exceptional service!
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+          <!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img
+                src="assets/img/testimonials/testimonials-5.jpg"
+                class="testimonial-img"
+                alt=""
+              />
+              <h3>John Larson</h3>
+              <h4>Entrepreneur</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                I’ve recently worked with Maria Nephew and Kelsey Oliverio to close the accounts of a family member who is very ill. 
+                Both were helpful, efficient, and kind, making a difficult task much easier for me. 
+                I also appreciated connecting with a real person each time I called, rather than encountering 
+                a complicated telephone tree. Customer service is clearly a high priority at The Bank.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+          <!-- End testimonial item -->
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
+  <!-- End Testimonials Section -->
+
+  <!-- ======= Blog Section ======= -->
+  <div id="blog" class="blog-area">
+    <div class="blog-inner area-padding">
+      <div class="blog-overly"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2>Latest News</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Start Left Blog -->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="single-blog">
+              <div class="single-blog-img">
+                <a href="blog.html">
+                  <img src="assets/img/blog/1.jpg" alt="" />
+                </a>
+              </div>
+              <div class="blog-meta">
+                <span class="comments-type">
+                  <i class="fa fa-comment-o"></i>
+                  <a href="#">13 comments</a>
+                </span>
+                <span class="date-type">
+                  <i class="fa fa-calendar"></i>2022-01-05 / 09:10:16
+                </span>
+              </div>
+              <div class="blog-text">
+                <h4>
+                  <a href="blog.html">THE Bank starts online customs duty payment facility for customers</a>
+                </h4>
+                <p>
+                  With THE Bank on board, clients would no longer need to route payments through other bank accounts. 
+                  This integration also offers the bank the opportunity to acquire current accounts of customers who bank 
+                  with others that do not offer this facility, it said in a release.
+                </p>
+              </div>
+              <span>
+                <a href="blog.html" class="ready-btn">Read more</a>
+              </span>
+            </div>
+            <!-- Start single blog -->
+          </div>
+          <!-- End Left Blog-->
+          <!-- Start Left Blog -->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="single-blog">
+              <div class="single-blog-img">
+                <a href="blog.html">
+                  <img src="assets/img/blog/2.jpg" alt="" />
+                </a>
+              </div>
+              <div class="blog-meta">
+                <span class="comments-type">
+                  <i class="fa fa-comment-o"></i>
+                  <a href="#">130 comments</a>
+                </span>
+                <span class="date-type">
+                  <i class="fa fa-calendar"></i>2021-12-05 / 11:10:16
+                </span>
+              </div>
+              <div class="blog-text">
+                <h4>
+                  <a href="blog.html">Third wave of COVID-19 to pose risk to asset quality of banks: ICRA</a>
+                </h4>
+                <p>
+                  A third wave poses a high risk to the performance of the borrowers that were impacted by the previous waves and hence poses a risk 
+                  to the improving trend of asset quality, profitability and solvency, said ICRA Vice-President (Financial Sector Ratings) Anil Gupta.
+                </p>
+              </div>
+              <span>
+                <a href="blog.html" class="ready-btn">Read more</a>
+              </span>
+            </div>
+            <!-- Start single blog -->
+          </div>
+          <!-- End Left Blog-->
+          <!-- Start Right Blog-->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="single-blog">
+              <div class="single-blog-img">
+                <a href="blog.html">
+                  <img src="assets/img/blog/3.jpg" alt="" />
+                </a>
+              </div>
+              <div class="blog-meta">
+                <span class="comments-type">
+                  <i class="fa fa-comment-o"></i>
+                  <a href="#">10 comments</a>
+                </span>
+                <span class="date-type">
+                  <i class="fa fa-calendar"></i>2022-01-14 / 07:10:16
+                </span>
+              </div>
+              <div class="blog-text">
+                <h4>
+                  <a href="blog.html">Edelweiss group partners Indian Bank for co-lending to priority segment</a>
+                </h4>
+                <p>
+                  Edelweiss Housing Finance Limited (EHFL) and ECL Finance Limited (ECLF) announce a strategic co-lending agreement 
+                  for priority sector lending with Indian Bank, one of the largest public sector banks in the country, 
+                  Edelweiss said in a release
+                </p>
+              </div>
+              <span>
+                <a href="blog.html" class="ready-btn">Read more</a>
+              </span>
+            </div>
+          </div>
+          <!-- End Right Blog-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Blog Section -->
+
+  <!-- ======= Suscribe Section ======= -->
+  <div class="suscribe-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs=12">
+          <div class="suscribe-text text-center">
+            <h3>Download our latest app for you smartphone!</h3>
+            <a class="sus-btn" href="#">Download Here</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Suscribe Section -->
+</main>
+{% endblock content %}

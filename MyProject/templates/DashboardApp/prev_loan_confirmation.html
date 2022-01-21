@@ -1,0 +1,30 @@
+{% extends "DashboardApp/base.html" %} {% block form %}
+<div>
+  {% load crispy_forms_tags %}
+  
+    
+    style="background-color: #d3e1e4"
+    class="jumbotron text-dark"
+  
+    <br ><br ><br>
+    <h3 style="text-align: center" class="mt-2 text-dark">PrevLoan Details</h3>
+    
+    <form>
+        {% csrf_token %}
+        <div class="container-xxl">
+            
+            
+            <h2 style="text-align: center" class="mt-2 text-dark">Do you have any previous loan ?</h2>
+            <button class="btn btn-primary" type="submit" formaction="{% url 'cPrevLoanpg' customer.id %}">Yes</button>
+            
+            <button class="btn btn-primary" type="submit" formaction="{% url 'addguarantor' customer.id %}">No</button>
+            
+
+
+        </div>
+    </form>
+    <!-- {{form|crispy}} -->
+    
+  
+</div>
+{% endblock form %}
