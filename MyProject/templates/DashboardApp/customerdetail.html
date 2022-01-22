@@ -1,5 +1,6 @@
 {% extends "DashboardApp/base.html" %}
 {% block form %}
+{% load static %}
 
 <form
         method="post"
@@ -175,48 +176,49 @@
                                 <ul style="list-style-type: none;padding: 1; margin-top: 20;">
                                     <div class="row text-center">
                                         <div class="col-md-4">
-                                            <a href="#" class="navbar-brand"><img src='' alt="#"/><h6
+                                            <a href="" class="navbar-brand"><img src="/media/{{docu.photo}}" alt="#"/><h6
                                                     style="color:black">Photo</h6></a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="#" class="navbar-brand"><img src='' alt="#"/><h6
+                                            <a href="#" class="navbar-brand"><img src="/media/{{docu.signature}}" alt="#"/><h6
                                                     style="color:black">Signature</h6></a>
                                         </div>
                                     </div>
                                     <div class="row text-center">
                                         <div class="col-md-4">
-                                            <a href="#" class="navbar-brand"><h6 style="color:black">Bank Statment</h6>
+                                            <a href="/media/{{docu.bank_statment}}/
+                                            " class="navbar-brand"><h6 style="color:black">Bank Statment</h6>
                                             </a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="#" class="navbar-brand"><h6 style="color:black">Pan Card</h6></a>
+                                            <a href="/media/{{docu.pan_card}}/" class="navbar-brand"><h6 style="color:black">Pan Card</h6></a>
                                         </div>
                                     </div>
                                     <div class="row text-center">
                                         <div class="col-md-4">
-                                            <a href="#" class="navbar-brand"><h6 style="color:black">Aadhar Card</h6>
+                                            <a href="/media/{{docu.aadhar_card}}/" class="navbar-brand"><h6 style="color:black">Aadhar Card</h6>
                                             </a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="#" class="navbar-brand"><h6 style="color:black">Salary Slip</h6>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="row text-center">
-                                        <div class="col-md-4">
-                                            <a href="#" class="navbar-brand"><h6 style="color:black">Form16</h6></a>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a href="#" class="navbar-brand"><h6 style="color:black">Balance Sheet</h6>
+                                            <a href="/media/{{docu.salary_slip}}/" class="navbar-brand"><h6 style="color:black">Salary Slip</h6>
                                             </a>
                                         </div>
                                     </div>
                                     <div class="row text-center">
                                         <div class="col-md-4">
-                                            <a href="#" class="navbar-brand"><h6 style="color:black">ITR</h6></a>
+                                            <a href="/media/{{docu.from16}}/" class="navbar-brand"><h6 style="color:black">Form16</h6></a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="#" class="navbar-brand"><h6 style="color:black">Business Proof</h6>
+                                            <a href="/media/{{docu.blance_sheet}}/" class="navbar-brand"><h6 style="color:black">Balance Sheet</h6>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col-md-4">
+                                            <a href="/media/{{docu.itr}}/" class="navbar-brand"><h6 style="color:black">ITR</h6></a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a href="/media/{{docu.business_proof}}/" class="navbar-brand"><h6 style="color:black">Business Proof</h6>
                                             </a>
                                         </div>
                                     </div>
@@ -232,12 +234,12 @@
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center" style="margin:20px 0">
 
-                <li class="page-item"><a class="page-link" href="#section0">Move Up</a></li>
+                <li class="page-item"><a class="page-link" href="#section0"style=" border-radius: 12px;">Move Up</a></li>
 
             </ul>
         </nav>
-        <a href="{% url 'update_sanction' loansanction.id %}" class="btn btn-secondary">Approve Loan for This
-            Customer</a>
+        <a href="{% url 'update_sanction' loansanction.id %}" class="btn btn-primary" style="margin-left:45%; border-radius: 12px;">Approve Loan 
+            </a>
     </div>
     </div></div></div>
 

@@ -12,7 +12,7 @@ def create_prevloan_view(request,i):
         if form.is_valid():
             form.save()
             r = request.POST.get("add")
-            if r == 'add more Detail':
+            if r == 'Add more Detail':
                 return redirect('/dapp/prevloan/cPrevLoan/%i' % customer.id)
             return redirect('/dapp/guarantor/add_guarantor/%i' % customer.id)
     template_name = 'DashboardApp/prevloandetails.html'

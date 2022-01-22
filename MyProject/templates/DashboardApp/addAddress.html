@@ -7,7 +7,7 @@
             class="jumbotron text-dark"
     >
         <br/><br/>
-        <h3 style="text-align: center" class="mt-2 text-dark">Permanent-Address</h3>
+        <h2 style="text-align: center" class="mt-2 text-dark"><b>Permanent Address</b></h2>
         {% csrf_token %}
 
         <div class="row mt-3">
@@ -98,7 +98,7 @@
                 onclick="FillAddressInput()"
         > Is current address Same as permanent address
         <br/><br/>
-        <h3 style="text-align: center" class="mt-2 text-dark">Current-Address</h3>
+        <h2 style="text-align: center" class="mt-2 text-dark"><b>Current Address</b></h2>
 
         <div class="row mt-3">
             <div class="col-6">{{ form_1.flat_no_1|as_crispy_field }}</div>
@@ -115,9 +115,9 @@
 
         <input
                 type="submit"
-                value="Add Address"
-                class="btn btn-dark btn-block mt-3"
-                style="margin-right: auto"
+                value="Submit and Next"
+                class="btn btn-primary  mt-3"
+                style="margin-left: 45%; border-radius: 12px"
         />
     </form>
 </div>

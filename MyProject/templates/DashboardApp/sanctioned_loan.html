@@ -1,19 +1,20 @@
 {% extends "DashboardApp/base.html" %} {% block form %}
 
-<div>
+<div class="jumbotron" height="100%"  >
   {% load crispy_forms_tags %}
   <form
     method="post"
-    style="background-color: #d3e1e4"
+    
     class="jumbotron text-dark"
   >
-    <br /><br />
-    <h3 style="text-align: center" class="mt-2 text-dark">Loan Sanction</h3>
-    {% csrf_token %} {{ form|crispy }}
+
+    <h2 style="text-align: center" ><b>Loan Required</b></h2>
+    {% csrf_token %} 
+    {{ form|crispy }}
     <input
       type="submit"
-      class="btn btn-dark btn-block mt-3"
-      style="margin-right: auto"
+      class="btn btn-primary  mt-3"
+      style="margin-left: 45%; border-radius: 12px"
     />
   </form>
 </div>

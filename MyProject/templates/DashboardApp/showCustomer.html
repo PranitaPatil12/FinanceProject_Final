@@ -2,18 +2,18 @@
 {% block form %}
 
 
-<div>
-
-<h2 style="text-align:center">Show Customer Details</h2>
-<table class="table table-dark">
-  <tr>
+<div class="jumbotron">
+<br>
+<h2 style="text-align:center"><b>Show Customer Details</b></h2><br>
+<table class="table table-striped" border="3">
+  <tr >
     <th>Full Name</th>
-    <th>guardian name</th>
-    <th>gender</th>
-    <th>mobile number</th>
-    <th>email</th>
-    <th>pan no</th>
-    <th>dob</th>
+    <th>Guardian name</th>
+    <th>Gender</th>
+    <th>Mobile Number</th>
+    <th>Email</th>
+    <th>Pan No</th>
+    <th>DOB</th>
     <th>Details</th>
 
   </tr>
@@ -26,7 +26,7 @@
     <td>{{cus.email}}</td>
     <td>{{cus.pan_no}}</td>
     <td>{{cus.dob}}</td>
-    <td><a href="{% url 'show_address' cus.id %}"><button class="btn btn-primary">Show Details</button></a></td>
+    <td><a href="{% url 'show_address' cus.id %}"><button class="btn btn-primary " style="margin-right: auto; border-radius: 12px">Show</button></a></td>
 
 
    </tr>

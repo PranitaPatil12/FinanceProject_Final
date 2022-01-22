@@ -3,16 +3,17 @@
   {% load crispy_forms_tags %}
   <form
     method="post"
-    style="background-color: #d3e1e4"
+   
     class="jumbotron text-dark"
     enctype="multipart/form-data"
   >
-    <br /><br />
-    <h3 style="text-align: center" class="mt-2 text-dark">Document Details</h3>
+    <br />
+    <h2 style="text-align: center" class="mt-2 text-dark"><b>Upload Documents </b></h2>
     {% csrf_token %}
+    <div class="col-6">{{ form.customer|as_crispy_field }}</div>
 
     <div class="row mt-3">
-      <div class="col-6">{{ form.customer|as_crispy_field }}</div>
+     
       <div class="col-6">{{ form.pan_card|as_crispy_field }}</div>
       <div class="col-6">{{ form.aadhar_card|as_crispy_field }}</div>
       <div class="col-6">{{ form.bank_statment|as_crispy_field }}</div>
@@ -27,9 +28,9 @@
     <!-- {{form|crispy}} -->
     <input
       type="submit"
-      value="Add Customer Detail"
-      class="btn btn-dark btn-block mt-3"
-      style="margin-right: auto"
+      value="Upload & Submit"
+      class="btn btn-primary  mt-3"
+      style="margin-left: 35%; border-radius: 12px"
     />
   </form>
 </div>

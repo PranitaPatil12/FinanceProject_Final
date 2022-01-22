@@ -10,17 +10,45 @@
 
 
 
-<div class="container">
+<div class="container"><br>
 
-    <form method="post" class="jumbotron", style="50%">
+    <form method="post" class="jumbotron">
     {% csrf_token %}
-        <p class="h3" align="center">Salaried Details Form</p>
-    {{form | crispy}}
+        <h2 style="text-align: center;" ><b>Salaried Details</b> </h2><br>
+        <div class="row mt-3">
+            <div class="col-6 "> {{ form.customer|as_crispy_field }}</div>
+            <div class="col-6">
+                {{ form.type_employment|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.designation|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.year_of_exp|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.joining_date|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.monthly_income|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.mode_of_salary|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.company_address|as_crispy_field }}
+            </div>
+        </div>
     <div style="width:100%" class="text-center">
         <input
                 type="submit"
                 value="Submit and Next"
-                class="btn btn-dark mt-3"
+                class="btn btn-primary  mt-3"
+                    style="margin-left: 0%; border-radius:12px"
         />
         </div>
     </form>
@@ -30,3 +58,4 @@
 
 
 {% endblock %}
+

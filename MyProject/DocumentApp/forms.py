@@ -6,16 +6,16 @@ class DocumentsForm(forms.ModelForm):
         model = Documents
         fields = '__all__'
 
-        lables = {
+        labels = {
             'pan_card': 'Pan Card',
-            'aadhar_card': 'Aaadhar Card',
+            'aadhar_card': 'Aadhar Card',
             'bank_statment': 'Bank Statement',
             'photo': 'Photo',
             'signature': 'Signature',
             'salary_slip': 'Salary Slip',
             'from16': 'Form16',
             'blance_sheet': 'Balance Sheet',
-            'itr': 'Itr',
+            'itr': 'ITR',
             'business_proof': 'Business Proof',
 
         }

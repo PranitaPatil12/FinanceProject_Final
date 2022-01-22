@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
                 ('aadhar_card', models.IntegerField()),
                 ('marital_status', models.CharField(choices=[('Married', 'Married'), ('Unmarried', 'Unmarried')], max_length=60)),
                 ('religion', models.CharField(choices=[('Hinduism', 'Hinduism'), ('Islam', 'Islam'), ('Christianity', 'Christianity'), ('Sikhism', 'Sikhism'), ('Other', 'Other')], max_length=60)),
-                ('dob', models.DateTimeField()),
+                ('dob', models.DateField()),
             ],
         ),
     ]

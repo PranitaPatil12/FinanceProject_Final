@@ -2,8 +2,8 @@
 {% load static %}
 {% block form %}
 <div class="jumbotron">
-<h1 style="text-align:center;color:royalblue">Enquiry List</h1>
-    <table class="table table-striped "  >
+<h2 style="text-align:center;color:black"><b>Enquiry List</b></h2><br>
+    <table class="table table-striped" border="3"  >
         <tr>
             <th>Full Name</th>
             <th>Gender</th>
@@ -21,8 +21,9 @@
                 <td>{{enquiry.email}}</td>
                 <td>{{enquiry.city}}</td>
 
-                <td><a href="{% url 'dEnquirypg' enquiry.id %}"><button class="btn btn-danger">Delete</button></a></td>
-                <td><a href="{% url 'addloan'  %}"><button class="btn btn-info">Contact</button></a></td>
+                <td><a href="{% url 'dEnquirypg' enquiry.id %}"><button class="btn btn-outline-danger" style="border-radius: 12px;">Delete</button></a></td>
+                <td><a href="{% url 'addloan'  %}"><button class="btn btn-outline-primary"
+                    style="border-radius: 12px;">Contact</button></a></td>
             </tr>
         {% endfor %}
     </table>

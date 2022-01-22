@@ -66,21 +66,21 @@
     <link href="{% static 'sidebar.css' %}" rel="stylesheet" />
   </head>
 
-  <body style="background-color: #a2d8e0">
+  <body >
     <!-- ======= Header ======= -->
     <div>
       <header
         id="header"
         class="fixed-top d-flex align-items-center"
-        style="background-color: black; position: fixed"
+        style="background-color: rgb(71, 71, 73); position: fixed"
       >
         <div class="container d-flex justify-content-between">
           <div class="logo">
             <h1>
-              <a href="index.html"><span></span>B22 Bank</a>
+              <a href="{% url 'homepage' %}"><span class="me-2"><img src="{% static 'assets/img/logo/logo1.png' %}" alt="logo"/></span>B22 Bank</a>
             </h1>
             <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a> -->
+            <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
           </div>
 
           <nav id="navbar" class="navbar">
@@ -109,8 +109,9 @@
               </li>
 
               {% if user.is_authenticated %}
-              <li><a style="color: chartreuse;">Hello,{{user.username|upper}}</a></li>
-              <li><a href="{% url 'logout' %}">LOGOUT</a></li>
+              <li><a href="{% url 'logout' %}">Logout</a></li>
+              <li><a style="color: aquamarine;"><i class="bi bi-person-square me-2 " style="font-size: medium;"></i>{{user.username|upper}}</a></li>
+              
               {% else %}
               <li><a href="{% url 'loginpage1' %}">LOGIN</a></li>
               {% endif %}

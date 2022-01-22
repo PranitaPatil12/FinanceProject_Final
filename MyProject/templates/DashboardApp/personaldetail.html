@@ -3,7 +3,7 @@
     {% load crispy_forms_tags %}
     <form method="post" style="background-color: #d3e1e4" class="jumbotron text-dark" id="form1">
         <br/><br/>
-        <h3 style="text-align: center" class="mt-2 text-dark">Personal Details</h3>
+        <h2 style="text-align: center" class="mt-2 text-dark"><b>Personal Details</b></h2>
         {% csrf_token %}
 
         <div class="row mt-3 border rounded">
@@ -27,9 +27,9 @@
             <!-- {{form|crispy}} -->
             <input
                     type="submit"
-                    value="Add Customer Detail"
-                    class="btn btn-dark btn-block mt-3"
-                    style="margin-right: auto"
+                    value="Submit and Next"
+                    class="btn btn-primary  mt-3"
+                    style="margin-left: 45%; border-radius: 12px"
                     name="submit"
             >
     </form>

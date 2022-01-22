@@ -28,7 +28,7 @@ class Customer(models.Model):
     aadhar_card = models.IntegerField()
     marital_status = models.CharField(max_length=60,choices=STATUS)
     religion = models.CharField(max_length=60,choices=RELIGION)
-    dob = models.DateTimeField()
+    dob = models.DateField()
 
 
 

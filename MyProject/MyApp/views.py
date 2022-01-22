@@ -104,7 +104,7 @@ def update_loandetails(request, i):
         form = LoanDetailsForm(request.POST, instance=customer)
         if form.is_valid():
             form.save()
-            return redirect('show')
+            return redirect('showloandetails')
     template_name = "DashboardApp/loandetails.html"
     context = {'form': form}
     return render(request, template_name, context)
@@ -113,7 +113,7 @@ def update_loandetails(request, i):
 def delete_loandetails(request, i):
     customer = LoanDetails.objects.get(id=i)
     customer.delete()
-    return redirect("show")
+    return redirect("showloandetails")
 
 
 

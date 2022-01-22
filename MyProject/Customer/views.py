@@ -7,6 +7,7 @@ from BankDetails.models import BankDetails
 from LoanApplication.models import SanctionedLoan
 from PrevLoan.models import PrevLoan
 from ProfessionalDetails.models import ProfessionalDetails
+from DocumentApp.models import Documents
 from django.contrib import messages
 from django.conf import settings
 from django.core.mail import send_mail
@@ -77,12 +78,12 @@ def show_details_view(request,i):
     loansanction = SanctionedLoan.objects.get(customer=customer)
     prevloan = PrevLoan.objects.filter(customer=customer)
     # profdetails =ProfessionalDetails.objects.get(customer=customer)
-    # docu = customer.docu.all()
+    docu = Documents.objects.get(customer=customer)
     template_name = 'DashboardApp/customerdetail.html'
     context = {'customer': customer,
                 'prevloan':prevloan,
                 'bankdetails': bankdetails,
-               'paddress':paddress,'loansanction':loansanction}
+               'paddress':paddress,'loansanction':loansanction,'docu':docu}
 
     return render(request, template_name, context)
 

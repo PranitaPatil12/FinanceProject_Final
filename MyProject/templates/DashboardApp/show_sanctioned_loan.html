@@ -1,26 +1,26 @@
 {% extends "DashboardApp/base.html" %} {% block form %}
-<div>
+<div class="jumbotron">
   {% load crispy_forms_tags %}
   <form
-    method="post"
-    style="background-color: #d3e1e4"
-    class="jumbotron text-dark"
-  >
-    <br /><br />
-    <h3 style="text-align: center" class="mt-2 text-dark">SANCTIONED LOAN</h3>
+    method="post">
+    
+
+   
+    <h2 style="text-align: center" class="mt-2 text-dark"><b>Sanctioned Loan</b></h2>
+    <br>
     {% csrf_token %}
-    <body>
+
       <table class="table table-striped" border="3">
         <tr>
-          <th>CUSTOMER</th>
-          <th>REQUIRED LOAN</th>
-          <th>APPROVED LOAN</th>
-          <th>TENURE</th>
-          <th>INTEREST</th>
+          <th>Customer</th>
+          <th>Required Loan</th>
+          <th>Approved Loan</th>
+          <th>Tenure</th>
+          <th>Interest</th>
           <th>EMI</th>
-          <th>APPROVED</th>
+          <th>Approved</th>
           {% if user.status == 'OPERATION HEAD' %}
-          <th>UPDATE</th>
+          <th>Update</th>
           <th>PDF</th>
           {% endif %}
         </tr>
@@ -28,28 +28,54 @@
         <tr>
           <td>{{sanction.customer}}</td>
           <td>{{sanction.required_loan}}</td>
-
+          {% if sanction.approved_loan == None %}
+          <td>--</td>
+          {% else %}
           <td>{{sanction.approved_loan}}</td>
-          <td>{{sanction.tenure}}</td>
-          <td>{{sanction.interest}}</td>
-          <td>{{sanction.emi}}</td>
-          <td>{{sanction.is_approved}}</td>
+          {% endif %}
+           {% if sanction.tenure == None %}
+          <td>--</td>
+          {% else %}
+           <td>{{sanction.tenure}}</td>
+          {% endif %}
+         {% if sanction.interest == None %}
+          <td>--</td>
+          {% else %}
+        <td>{{sanction.interest}}</td>
+          {% endif %}
+
+          {% if sanction.emi == None %}
+          <td>--</td>
+          {% else %}
+        <td>{{sanction.emi}}</td>
+          {% endif %}
+
+        
+
+          {% if sanction.is_approved == True %}
+          <td style="color:green">Approved</td>
+            {% else %}
+          <td style="color:red">Pending</td>
+            {% endif %}
+
+
+
           {% if user.status == 'OPERATION HEAD' %}
           <td>
             <a href="{% url 'update_sanction' sanction.id %}">
-              <button class="btn btn-danger" type="button">Update</button></a
+              <button class="btn btn-outline-info  " style=" border-radius: 12px" type="button">Update</button></a
             >
           </td>
           <td>
             <a href="{% url 'index' sanction.id %}">
-              <button class="btn btn-danger" type="button">PDF</button></a
+              <button class="btn btn-outline-primary  " style=" border-radius: 12px" type="button">PDF</button></a
             >
           </td>
           {% endif %}
         </tr>
         {% endfor %}
       </table>
-    </body>
+
   </form>
 </div>
 {% endblock form %}
