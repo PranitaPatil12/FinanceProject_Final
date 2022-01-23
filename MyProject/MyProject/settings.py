@@ -148,4 +148,4 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'pranitapatilg@gmail.com'
 # <editor-fold desc="Email Password">
-EMAIL_HOST_PASSWORD = 'patildutande@2484'
+EMAIL_HOST_PASSWORD = ''
